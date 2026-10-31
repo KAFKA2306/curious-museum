@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0F17">
+<meta name="description" content="奇妙な博物館。6つの実在する奇妙な展示を調査し、収蔵印を集めるオフライン対応の小さなゲーム。">
+<title>奇妙な博物館 | 第0号館</title>
+<style>
+:root {
+  color-scheme: dark;
+  /* KAFKA2306/design foundation.tokens.json の dark semantic color を参照したスタンドアロン試作。 */
+  --k-color-canvas:#0B0F17;--k-color-surface:#111827;--k-color-foreground:#F1F5F9;
+  --k-color-muted-foreground:#94A3B8;--k-color-border:#1E293B;--k-color-primary:#60A5FA;
+  --k-color-accent:#7DD3FC;--k-color-success:#4ADE80;--k-color-warning:#FBBF24;
+  --k-color-danger:#F87171;--k-dimension-touch-target:44px;
+  --font:Inter,"Noto Sans JP",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--k-color-canvas);color:var(--k-color-foreground);font-family:var(--font);line-height:1.65;font-size:15px}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+a{color:var(--k-color-accent);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--k-color-accent);outline-offset:3px}
+::selection{background:var(--k-color-primary);color:#0B0F17}
+.container{width:min(1080px,calc(100% - 36px));margin-inline:auto}
+.skip{position:absolute;top:-70px;left:20px;background:var(--k-color-foreground);color:var(--k-color-canvas);padding:10px;z-index:100}
+.skip:focus{top:12px}
+.topbar{border-bottom:1px solid var(--k-color-border);background:var(--k-color-surface)}
+.topbar-inner{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{font-weight:750;text-decoration:none;color:var(--k-color-foreground);display:inline-flex;gap:12px;align-items:center}
+.brand-mark{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--k-color-accent);color:var(--k-color-accent);font-size:19px;border-radius:2px}
+.top-note{font-size:12px;color:var(--k-color-muted-foreground);text-align:right;letter-spacing:.08em}
+.hero{padding:58px 0 30px;position:relative}
+.kicker{font-size:12px;font-weight:750;letter-spacing:.17em;color:var(--k-color-accent);margin:0 0 16px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(220px,.6fr);align-items:center;gap:26px}
+h1{font-size:clamp(42px,6.8vw,82px);line-height:1.07;letter-spacing:-.075em;margin:0 0 20px;font-weight:820}
+h1 em{font-style:normal;color:var(--k-color-accent)}
+.subtitle{max-width:58ch;color:var(--k-color-muted-foreground);font-size:16px;margin:0 0 23px}
+.hero-quote{border:1px solid var(--k-color-border);background:var(--k-color-surface);padding:22px;transform:rotate(1.5deg);font-size:14px}
+.hero-quote .seal{font-size:56px;line-height:1.2;color:var(--k-color-warning);display:block;letter-spacing:-.12em}
+.hero-quote strong{font-size:17px;display:block;margin:12px 0 8px}
+.hero-quote p{margin:0;color:var(--k-color-muted-foreground)}
+.btn{min-height:var(--k-dimension-touch-target);border:1px solid var(--k-color-primary);background:var(--k-color-primary);color:#0B0F17;display:inline-flex;justify-content:center;align-items:center;gap:7px;padding:10px 15px;text-decoration:none;font-weight:740;border-radius:2px;line-height:1.4}
+.btn.secondary{border-color:var(--k-color-border);background:var(--k-color-surface);color:var(--k-color-foreground)}
+.btn.ghost{background:transparent;border-color:var(--k-color-border);color:var(--k-color-foreground)}
+.btn.small{min-height:var(--k-dimension-touch-target);font-size:13px;padding:8px 12px}
+.btn:hover:not(:disabled){border-color:var(--k-color-accent)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.panel{border:1px solid var(--k-color-border);background:var(--k-color-surface)}
+.progress-panel{margin:20px 0 36px;padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:10px 24px;align-items:center}
+.progress-panel strong{font-size:18px}
+.muted{color:var(--k-color-muted-foreground)}
+.progress-rail{grid-column:1/-1;height:9px;background:var(--k-color-border);position:relative;overflow:hidden}
+.progress-fill{height:100%;background:var(--k-color-primary);width:0;transition:width .12s linear}
+.stamps{display:flex;gap:9px;flex-wrap:wrap;grid-column:1/-1;margin-top:3px}
+.stamp{width:39px;height:39px;display:grid;place-items:center;border:1px dashed var(--k-color-muted-foreground);color:var(--k-color-muted-foreground);font-size:17px;position:relative}
+.stamp.earned{color:var(--k-color-warning);border-style:solid;border-color:var(--k-color-warning)}
+.stamp.earned::after{content:'✓';font-size:10px;position:absolute;right:1px;bottom:-3px;background:var(--k-color-surface);color:var(--k-color-warning)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:10px 0 18px}
+h2{font-size:clamp(23px,3.5vw,32px);line-height:1.2;letter-spacing:-.04em;margin:0}
+.section-head p{margin:5px 0 0;color:var(--k-color-muted-foreground);font-size:13px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.filter{border:1px solid var(--k-color-border);padding:9px 13px;background:var(--k-color-surface);color:var(--k-color-muted-foreground);min-height:44px;border-radius:2px}
+.filter[aria-pressed="true"]{border-color:var(--k-color-primary);color:var(--k-color-foreground);background:#162845}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exhibit{display:flex;flex-direction:column;min-width:0;border:1px solid var(--k-color-border);background:var(--k-color-surface)}
+.exhibit-head{position:relative;min-height:162px;display:grid;place-items:center;border-bottom:1px solid var(--k-color-border);background:var(--k-color-canvas);overflow:hidden}
+.exhibit-head::before,.exhibit-head::after{content:'';position:absolute;border:1px solid var(--k-color-border);width:135px;height:135px;transform:rotate(45deg);opacity:.75}
+.exhibit-head::after{width:180px;height:180px;transform:rotate(24deg)}
+.exhibit-emoji{position:relative;z-index:2;font-size:77px;line-height:1;filter:saturate(.85)}
+.exhibit-index{position:absolute;top:12px;left:15px;color:var(--k-color-muted-foreground);font-family:monospace;font-size:12px;letter-spacing:.07em}
+.exhibit-sticker{position:absolute;right:12px;top:12px;border:1px solid var(--k-color-warning);color:var(--k-color-warning);padding:2px 5px;font-size:11px;background:var(--k-color-canvas)}
+.exhibit-body{padding:18px;display:flex;flex-direction:column;flex:1;gap:9px}
+.tag{font-size:11px;font-weight:720;color:var(--k-color-accent);letter-spacing:.08em}
+h3{font-size:19px;line-height:1.35;margin:0;letter-spacing:-.025em}
+.exhibit-body p{font-size:13px;color:var(--k-color-muted-foreground);margin:0;flex:1}
+.exhibit-body .btn{width:100%;margin-top:8px}
+.secret{margin:30px 0;border:1px dashed var(--k-color-warning);padding:23px;background:var(--k-color-surface);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.secret-glyph{font-size:58px;line-height:1}
+.secret h3{margin:0 0 5px;font-size:20px}
+.secret p{margin:0;color:var(--k-color-muted-foreground)}
+.secret:not(.unlocked) .secret-glyph{filter:grayscale(1);opacity:.65}
+.curator{border-top:1px solid var(--k-color-border);margin-top:44px;padding:42px 0 50px}
+.curator-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:23px}
+.note{font-size:14px;color:var(--k-color-muted-foreground);margin:0 0 18px}
+.form-box{padding:20px;border:1px solid var(--k-color-border);background:var(--k-color-surface)}
+.form-row{display:grid;gap:4px;margin-bottom:13px}
+.form-row label{font-size:13px;font-weight:700}
+.form-row small{color:var(--k-color-muted-foreground)}
+.field{width:100%;min-height:44px;background:var(--k-color-canvas);color:var(--k-color-foreground);border:1px solid var(--k-color-border);border-radius:2px;padding:10px 11px}
+textarea.field{min-height:92px;resize:vertical}
+.form-box .btn{width:100%}
+.note-items{display:grid;gap:9px;margin-top:18px}
+.note-item{border:1px solid var(--k-color-border);padding:13px;background:var(--k-color-surface);overflow-wrap:anywhere}
+.note-item h4{margin:5px 0 4px;font-size:16px}
+.note-item p{margin:0 0 8px;font-size:13px;white-space:pre-wrap}
+.note-item .actions{margin-top:10px}
+.empty{color:var(--k-color-muted-foreground);padding:15px;border:1px dashed var(--k-color-border);font-size:13px}
+.data-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.footer{border-top:1px solid var(--k-color-border);padding:28px 0 45px;color:var(--k-color-muted-foreground);font-size:12px}
+.footer-inner{display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap}
+dialog{padding:0;border:1px solid var(--k-color-border);background:var(--k-color-surface);color:var(--k-color-foreground);width:min(620px,calc(100vw - 28px));max-height:min(92dvh,900px);overflow:auto;border-radius:3px}
+dialog::backdrop{background:rgba(0,0,0,.76)}
+.dialog-content{padding:25px}
+.dialog-top{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:14px}
+.dialog-top .btn{flex:0 0 auto}
+.dialog-icon{font-size:74px;line-height:1.2;margin:4px 0 6px}
+.dialog-fact{font-size:13px;color:var(--k-color-muted-foreground);margin:8px 0 16px}
+.question{font-size:20px;line-height:1.4;margin:0 0 15px}
+.choices{display:grid;gap:9px;margin-bottom:12px}
+.choice{border:1px solid var(--k-color-border);background:var(--k-color-canvas);color:var(--k-color-foreground);text-align:left;padding:12px;min-height:48px;border-radius:2px;white-space:normal}
+.choice:hover:not(:disabled){border-color:var(--k-color-primary)}
+.result{border-left:3px solid var(--k-color-success);padding:10px 0 10px 14px;background:var(--k-color-canvas);margin:15px 0}
+.result.wrong{border-color:var(--k-color-warning)}
+.result strong{display:block;margin:0 0 5px}
+.result p{margin:0 0 8px}
+.source{font-size:13px;padding-top:12px;border-top:1px solid var(--k-color-border);overflow-wrap:anywhere}
+.caption{font-size:12px;color:var(--k-color-muted-foreground)}
+#status{min-height:20px;font-size:12px;color:var(--k-color-muted-foreground)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:760px){.hero{padding-top:38px}.hero-grid{grid-template-columns:1fr}.hero-quote{transform:none;max-width:390px}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.curator-grid{grid-template-columns:1fr}.top-note{display:none}}
+@media(max-width:500px){.container{width:min(100% - 24px,1080px)}.gallery{grid-template-columns:1fr}.exhibit-head{min-height:140px}.progress-panel{padding:17px}.section-head{align-items:start}.hero{padding-top:30px}.dialog-content{padding:17px}.secret{grid-template-columns:1fr;gap:8px}.btn{max-width:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-fill{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><div class="container topbar-inner"><a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">⌘</span><span>奇妙な博物館 <span class="muted">/ 第0号館</span></span></a><span class="top-note">OPEN 24/7 · ALL FACTS ARE STRANGE</span></div></header>
+<main id="main">
+<section class="hero container" aria-labelledby="hero-title">
+<p class="kicker">THE MUSEUM OF UNREASONABLE REALITY</p>
+<div class="hero-grid">
+<div><h1 id="hero-title">世界は、<br><em>変なもの</em>で<br>できている。</h1>
+<p class="subtitle">実在する奇妙な事実を集めた、小さな参加型博物館。展示を調査し、三択に答え、6つの収蔵印を手に入れよう。最終展示室には、もっとも扱いづらい展示物が眠っています。</p>
+<div class="actions"><a class="btn" href="#gallery">展示室へ入る ↗</a><a class="btn secondary" href="#curator">展示を寄贈する</a><a class="btn secondary" href="curation.html">珍品を発掘する ↗</a></div></div>
+<aside class="hero-quote" aria-label="学芸員からのお知らせ"><span class="seal" aria-hidden="true">¿!</span><strong>学芸員からのお願い</strong><p>「うそみたい」は大歓迎。根拠が見つからない話は、未検証の棚で調査します。</p></aside>
+</div></section>
+<div class="container"><section class="progress-panel panel" aria-label="見学の進行状況">
+<div><div class="kicker" style="margin:0 0 3px">YOUR COLLECTION</div><strong id="progress-label">収蔵印 0 / 6</strong></div><div class="muted" id="score-label">正解 0 / 0</div>
+<div class="progress-rail" role="progressbar" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" aria-label="収蔵印"><div class="progress-fill" id="progress-fill"></div></div>
+<div class="stamps" id="stamp-strip" aria-label="収蔵印一覧"></div><div id="status" role="status" aria-live="polite"></div>
+</section></div>
+<section id="gallery" class="container" aria-labelledby="gallery-title">
+<div class="section-head"><div><p class="kicker" style="margin:0 0 5px">FLOOR GUIDE / 001</p><h2 id="gallery-title">常識が迷子になる展示室</h2><p>好きな順番でどうぞ。展示物はすべて出典付きです。</p></div><span class="muted" style="font-size:12px">展示数 06</span></div>
+<div class="filters" role="group" aria-label="展示室の絞り込み"><button type="button" class="filter" data-filter="all" aria-pressed="true">すべて</button><button type="button" class="filter" data-filter="life" aria-pressed="false">生き物の都合</button><button type="button" class="filter" data-filter="earth" aria-pressed="false">地球の誤解</button><button type="button" class="filter" data-filter="space" aria-pressed="false">宇宙の事情</button></div>
+<div class="gallery" id="exhibit-grid"></div>
+<section class="secret" id="secret-panel" aria-live="polite"><div class="secret-glyph" aria-hidden="true">🔒</div><div><h3>第7展示室：関係者以外、立入自由</h3><p id="secret-text">6つの展示を調べると扉が開きます。残り6点。</p><div id="secret-actions" class="actions" style="margin-top:12px"></div></div></section>
+</section>
+<section class="curator" id="curator" aria-labelledby="curator-title"><div class="container curator-grid">
+<div><p class="kicker">CURATOR'S OFFICE</p><h2 id="curator-title">今度は、あなたが学芸員。</h2><p class="note" style="margin-top:14px">次に見つけた奇妙な話をここに保存できます。寄贈品は「未検証」として分けて保管。外部送信はせず、このブラウザ内だけに置きます。</p>
+<div class="panel" style="padding:16px"><strong>館内ルール</strong><p class="note" style="margin:7px 0 0">面白い話を拾う → 出典を記録する → 確認する → 展示にする。誤りを見つけたら、出典を確かめて展示を直す。</p></div>
+<div class="data-actions"><button class="btn secondary small" id="export-btn" type="button">記録をJSONで保存</button><button class="btn secondary small" id="import-btn" type="button">記録を復元</button><input class="sr-only" id="import-file" type="file" accept="application/json,.json"></div>
+<p class="caption" id="save-notice">保存状態を確認しています。</p></div>
+<div><form class="form-box" id="donate-form"><div class="form-row"><label for="donate-title">展示タイトル <span class="muted">(必須)</span></label><input class="field" id="donate-title" maxlength="50" required placeholder="例：郵便配達をするカタツムリ"></div>
+<div class="form-row"><label for="donate-details">何が奇妙？ <span class="muted">(必須)</span></label><textarea class="field" id="donate-details" maxlength="500" required placeholder="発見した話と、調べたい点を記録する"></textarea></div>
+<div class="form-row"><label for="donate-source">出典URL <span class="muted">(任意)</span></label><input class="field" id="donate-source" type="url" maxlength="500" placeholder="https://..."><small>URLを書いただけでは確認済みにはなりません。</small></div>
+<button type="submit" class="btn">未検証の展示を寄贈する ＋</button></form>
+<div class="section-head" style="margin-top:24px"><div><h3>寄贈品の収蔵庫</h3><p id="donations-count" class="muted" style="margin:4px 0 0">0点</p></div></div><div id="donations-list" class="note-items"></div></div>
+</div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><span>奇妙な博物館 · 第0号館 / 2026 · 一人目の学芸員を募集中</span><span>出典は各展示に記載。生成された作り話は収蔵しません。</span></div></footer>
+<dialog id="exhibit-dialog" aria-labelledby="dialog-title"><div class="dialog-content"><div class="dialog-top"><div><span class="kicker" id="dialog-index">EXHIBIT 001</span><h2 id="dialog-title">展示タイトル</h2></div><button class="btn ghost small" type="button" id="dialog-close" aria-label="展示を閉じる">閉じる ×</button></div><div class="dialog-icon" id="dialog-icon" aria-hidden="true"></div><p id="dialog-lead" class="dialog-fact"></p><h3 class="question" id="dialog-question"></h3><div class="choices" id="dialog-choices"></div><div id="dialog-result" aria-live="polite"></div><p class="source" id="dialog-source"></p></div></dialog>
+<script>
+(()=>{'use strict';
+const EXHIBITS=[
+ {id:'wombat',room:'life',roomName:'生き物の都合',num:'001',icon:'🟫',title:'角ばった落とし物',teaser:'四角いものを出す生き物がいる。工作の授業ではない。',lead:'ウォンバットのふんは、サイコロのように角ばっている。',question:'いったい、どこで四角くなる？',options:['腸の中','巣穴の四角い床','飼育員の手作業'],answer:0,fact:'研究では、腸の部位ごとの伸縮性の違いが角ばった形に関係すると説明されています。高い場所に置いたふんが転がりにくいことにも役立つと考えられています。',joke:'腸に角丸を実装するどころか、角を付けてきた。',sourceName:'南オーストラリア州 Cleland Wildlife Park',source:'https://cdn.environment.sa.gov.au/clelandwildlifepark/docs/Issue-13-Wombats.pdf'},
+ {id:'octopus',room:'life',roomName:'生き物の都合',num:'002',icon:'🐙',title:'心臓の複数持ち',teaser:'タコの循環器、冗長構成を組んでいる。',lead:'タコを含む頭足類は、青い血液を持つ。',question:'タコの心臓はいくつある？',options:['1つ','3つ','8つ'],answer:1,fact:'えらへ血液を送る心臓が2つ、全身に送る心臓が1つ。血液が青いのは、銅を含むヘモシアニンを酸素運搬に使うためです。',joke:'心臓が3つ。恋愛相談の窓口も3つ必要かもしれない。',sourceName:'Smithsonian Ocean',source:'https://ocean.si.edu/ocean-life/invertebrates/octopuses-squids-and-relatives'},
+ {id:'banana',room:'earth',roomName:'地球の誤解',num:'003',icon:'🍌',title:'ベリー界の裏切り者',teaser:'スーパーの果物売り場、植物学と意見が合わない。',lead:'普段「ベリー」と呼ばれる果物と、植物学の分類は別物。',question:'植物学上、バナナの実は何に分類される？',options:['マメ科のさや','液果（ベリー）','柑橘類'],answer:1,fact:'バナナは植物学的には「液果（berry）」です。日常の「ベリー」という言葉とは定義が違います。',joke:'ベリーの会議にイチゴより先にバナナが来そう。',sourceName:'英国王立植物園 Kew Science（Musa itinerans）',source:'https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A584951-1/general-information'},
+ {id:'shark',room:'earth',roomName:'地球の誤解',num:'004',icon:'🦈',title:'木より先輩のサメ',teaser:'森の歴史を話す前に、海から古参が割り込んでくる。',lead:'サメやその祖先の系統は、極めて長い進化史を持つ。',question:'古いのはどちら？',options:['サメにつながる古い系統','最初の木','ほぼ同時期'],answer:0,fact:'サメにつながる系統の化石記録は、木の登場より古くまで遡ります。ただし最古級の「サメのような鱗」が真のサメ由来かどうかは研究上の議論があります。',joke:'年功序列なら森全体がサメに敬語。',sourceName:'Natural History Museum London',source:'https://www.nhm.ac.uk/discover/shark-evolution-a-450-million-year-timeline.html'},
+ {id:'venus',room:'space',roomName:'宇宙の事情',num:'005',icon:'🟠',title:'1年より長い1日',teaser:'金星のカレンダー、設計レビューで止まりそう。',lead:'金星は非常にゆっくり自転している。',question:'金星では、どちらが長い？',options:['自転1回にかかる時間','太陽を1周する時間','どちらも同じ'],answer:0,fact:'金星の自転周期は約243地球日、公転周期は約225地球日。ここでの「1日」は自転1回の時間で、日の出から次の日の出までは約117地球日です。',joke:'月末締めに入る前に年度が終わる。',sourceName:'NASA Science',source:'https://science.nasa.gov/venus/venus-facts/'},
+ {id:'tardigrade',room:'space',roomName:'宇宙の事情',num:'006',icon:'🔬',title:'宇宙帰りの小さな客',teaser:'サイズは小さい。生存戦略が大げさ。',lead:'クマムシは極限環境に強い微小な動物。',question:'宇宙空間にさらした実験で確認されたのは？',options:['一部が生き残った','全個体が巨大化した','生き残った個体はいなかった'],answer:0,fact:'欧州宇宙機関（ESA）は、宇宙環境に曝露されたクマムシなどが生きた状態で地球へ戻った研究を紹介しています。「どんな条件でも不死身」という意味ではありません。',joke:'出張先：宇宙。交通費精算：地球に帰ってから。',sourceName:'European Space Agency',source:'https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Futura/Exposure_to_space_and_Mars'}
+];
+const KEY='curious-museum-v1';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const defaultState=()=>({version:1,choices:{},donations:[]});
+let storeAvailable=true,toastTimer=0,currentId=null,filter='all';
+function urlSafe(value){if(!value)return '';try{const u=new URL(value);return ['https:','http:'].includes(u.protocol)?u.href:'';}catch{return '';}}
+function normalize(input){const state=defaultState();if(!input||typeof input!=='object'||input.version!==1)throw Error('対応していない記録形式です');
+ const ids=new Set(EXHIBITS.map(e=>e.id));if(input.choices&&typeof input.choices==='object'){for(const [k,v] of Object.entries(input.choices)){if(ids.has(k)&&Number.isInteger(v)&&v>=0&&v<=2)state.choices[k]=v;}}
+ if(Array.isArray(input.donations)){state.donations=input.donations.slice(0,200).filter(v=>v&&typeof v.title==='string'&&typeof v.details==='string'&&v.title.trim()&&v.details.trim()).map(v=>({id:String(v.id||'').slice(0,100)||makeId(),title:v.title.trim().slice(0,50),details:v.details.trim().slice(0,500),source:urlSafe(String(v.source||'').slice(0,500)),createdAt:String(v.createdAt||'').slice(0,50)}));}
+ return state;}
+function makeId(){return 'n-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,9);}
+function load(){try{const raw=localStorage.getItem(KEY);return raw?normalize(JSON.parse(raw)):defaultState();}catch(e){storeAvailable=false;return defaultState();}}
+let state=load();
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));storeAvailable=true;}catch{storeAvailable=false;}$('save-notice').textContent=storeAvailable?'この端末のブラウザ内に自動保存します。機種変更前に「JSONで保存」を使ってください。':'この環境では自動保存できません。必ず「JSONで保存」で記録を残してください。';}
+function announce(message){$('status').textContent=message;}
+function scores(){const entries=Object.entries(state.choices);return {stamps:entries.length,correct:entries.filter(([id,answer])=>EXHIBITS.find(e=>e.id===id).answer===answer).length};}
+function renderProgress(){const {stamps,correct}=scores();$('progress-label').textContent=`収蔵印 ${stamps} / 6`;$('score-label').textContent=`正解 ${correct} / ${stamps}`;$('progress-fill').style.width=(stamps/6*100)+'%';document.querySelector('[role="progressbar"]').setAttribute('aria-valuenow',String(stamps));$('stamp-strip').innerHTML=EXHIBITS.map(e=>`<span class="stamp ${Object.hasOwn(state.choices,e.id)?'earned':''}" title="${esc(e.title)}" aria-label="${esc(e.title)}: ${Object.hasOwn(state.choices,e.id)?'収蔵済':'未収蔵'}">${e.icon}</span>`).join('');
+ const unlocked=stamps===6;const panel=$('secret-panel');panel.classList.toggle('unlocked',unlocked);panel.querySelector('.secret-glyph').textContent=unlocked?'🚪':'🔒';panel.querySelector('h3').textContent=unlocked?'第7展示室：この博物館の最終展示':'第7展示室：関係者以外、立入自由';$('secret-text').textContent=unlocked?'ついに扉が開きました。最後に展示されるのは、この世界を「普通」だと思っていた生き物です。':'6つの展示を調べると扉が開きます。残り'+(6-stamps)+'点。';$('secret-actions').innerHTML=unlocked?'<button type="button" class="btn" id="secret-open">最後の展示を見る →</button>':'';
+ if(unlocked)$('secret-open').addEventListener('click',openSecret);
+}
+function renderGallery(){const items=EXHIBITS.filter(e=>filter==='all'||e.room===filter);$('exhibit-grid').innerHTML=items.map(e=>{const done=Object.hasOwn(state.choices,e.id);return `<article class="exhibit"><div class="exhibit-head"><span class="exhibit-index">OBJECT / ${e.num}</span><span class="exhibit-emoji" aria-hidden="true">${e.icon}</span>${done?'<span class="exhibit-sticker">収蔵済 ✓</span>':''}</div><div class="exhibit-body"><span class="tag">${e.roomName} · 資料確認済</span><h3>${e.title}</h3><p>${e.teaser}</p><button type="button" class="btn ${done?'secondary':''}" data-exhibit="${e.id}">${done?'展示記録を見る':'この謎を調べる'} ↗</button></div></article>`;}).join('');}
+function renderDonations(){const items=state.donations;$('donations-count').textContent=`${items.length}点 / 未検証`;$('donations-list').innerHTML=items.length?items.map(n=>`<article class="note-item"><span class="tag" style="color:var(--k-color-warning)">寄贈品 · 未検証</span><h4>${esc(n.title)}</h4><p>${esc(n.details)}</p>${n.source?`<a href="${esc(n.source)}" target="_blank" rel="noopener noreferrer">記録した出典 ↗</a>`:'<span class="caption">出典未登録</span>'}<div class="actions"><button class="btn ghost small" type="button" data-remove="${esc(n.id)}">この寄贈品を削除</button></div></article>`).join(''):'<div class="empty">まだ寄贈品はありません。最初の珍品を見つけましょう。</div>';}
+function render(){renderProgress();renderGallery();renderDonations();persist();}
+function openExhibit(id){const e=EXHIBITS.find(x=>x.id===id);if(!e)return;currentId=id;$('dialog-index').textContent='EXHIBIT / '+e.num+' · '+e.roomName;$('dialog-title').textContent=e.title;$('dialog-icon').textContent=e.icon;$('dialog-lead').textContent=e.lead;$('dialog-question').textContent=e.question;$('dialog-source').innerHTML='<span class="caption">根拠資料（外部サイト）</span> <a href="'+esc(e.source)+'" target="_blank" rel="noopener noreferrer">'+esc(e.sourceName)+' ↗</a>';
+ const answered=Object.hasOwn(state.choices,id);$('dialog-choices').innerHTML=answered?'':e.options.map((o,i)=>`<button class="choice" type="button" data-choice="${i}">${i+1}. ${esc(o)}</button>`).join('');$('dialog-result').innerHTML='';if(answered)showAnswer(e,state.choices[id],true);$('exhibit-dialog').showModal();$('dialog-close').focus();}
+function showAnswer(e,index,history){const correct=e.answer===index;$('dialog-choices').innerHTML='';const result=$('dialog-result');result.className='result '+(correct?'':'wrong');const header=correct?'正解。常識の負けです。':'惜しい。展示品のほうが変でした。';result.innerHTML=`<strong>${header}</strong><p><b>正解：</b>${esc(e.options[e.answer])}</p><p>${esc(e.fact)}</p><p class="muted">学芸員のひとこと：${esc(e.joke)}</p><span class="caption">${history?'収蔵済みの記録です。':'収蔵印を1つ獲得しました。'}</span>`;}
+function answer(choice){if(!currentId||Object.hasOwn(state.choices,currentId))return;const e=EXHIBITS.find(x=>x.id===currentId);state.choices[currentId]=choice;showAnswer(e,choice,false);render();const s=scores();announce(s.stamps===6?'全展示の収蔵が完了しました。第7展示室が解放されました。':`「${e.title}」を収蔵しました。あと${6-s.stamps}点。`);}
+function openSecret(){$('dialog-index').textContent='SECRET EXHIBIT / 007';$('dialog-title').textContent='ふつうを信じる生き物';$('dialog-icon').textContent='🪞';$('dialog-lead').textContent='分類：ホモ・サピエンス / 目撃場所：ほぼ全域';$('dialog-question').textContent='最終展示：人間はなぜ、これほど変な世界を「普通」と呼べるのか？';$('dialog-choices').innerHTML='';$('dialog-result').className='result';$('dialog-result').innerHTML='<strong>特別展示を発見しました 🎟️</strong><p>答えはまだありません。ここは、答えの分からないものも収蔵できる博物館です。ただし「未解明」と「確認済み」を混ぜないこと。</p><p>次の展示を決めるのは、あなたです。「展示を寄贈する」から第8号展示候補を登録してください。</p>';$('dialog-source').textContent='この展示は博物館オリジナルの問いです。実証された科学的結論ではありません。';$('exhibit-dialog').showModal();$('dialog-close').focus();}
+function donate(evt){evt.preventDefault();const title=$('donate-title').value.trim(),details=$('donate-details').value.trim(),raw=$('donate-source').value.trim();const source=urlSafe(raw);if(!title||!details){announce('タイトルと説明を入力してください。');return;}if(raw&&!source){announce('出典は http または https のURLにしてください。');$('donate-source').focus();return;}
+state.donations.unshift({id:makeId(),title:title.slice(0,50),details:details.slice(0,500),source,createdAt:new Date().toISOString()});state.donations=state.donations.slice(0,200);render();$('donate-form').reset();announce(`「${title}」を未検証の寄贈品として保存しました。`);$('donations-list').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function download(){const blob=new Blob([JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='curious-museum-save-'+new Date().toISOString().slice(0,10)+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);announce('記録をJSONとして書き出しました。');}
+async function importFile(file){if(!file)return;if(file.size>1024*1024){announce('JSONファイルが大きすぎます（上限1MB）。');return;}try{const read=JSON.parse(await file.text());const next=normalize(read);state=next;render();announce('記録を復元しました。');}catch(e){announce('読み込みに失敗しました：'+(e instanceof Error?e.message:'JSONを確認してください。'));}finally{$('import-file').value='';}}
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{filter=btn.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));renderGallery();}));
+$('exhibit-grid').addEventListener('click',ev=>{const btn=ev.target.closest('[data-exhibit]');if(btn)openExhibit(btn.dataset.exhibit);});
+$('dialog-choices').addEventListener('click',ev=>{const btn=ev.target.closest('[data-choice]');if(btn)answer(Number(btn.dataset.choice));});
+$('dialog-close').addEventListener('click',()=>$('exhibit-dialog').close());
+$('exhibit-dialog').addEventListener('click',ev=>{if(ev.target===$('exhibit-dialog'))$('exhibit-dialog').close();});
+$('donate-form').addEventListener('submit',donate);
+$('donations-list').addEventListener('click',ev=>{const btn=ev.target.closest('[data-remove]');if(!btn)return;const id=btn.dataset.remove;const n=state.donations.find(v=>v.id===id);if(n&&confirm(`「${n.title}」を削除しますか？`)){state.donations=state.donations.filter(v=>v.id!==id);render();announce('寄贈品を削除しました。');}});
+$('export-btn').addEventListener('click',download);
+$('import-btn').addEventListener('click',()=>$('import-file').click());
+$('import-file').addEventListener('change',ev=>importFile(ev.target.files[0]));
+render();
+})();
+</script>
+</body></html>
