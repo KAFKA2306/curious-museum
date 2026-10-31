@@ -21,7 +21,7 @@
 
 ## ローカル検証結果
 
-検証結果は下に記録します。GitHubリポジトリは作成済みですが、コード登録、GitHub Actionsの完了、公開サイトの動作は未確認です。
+検証結果は下に記録します。14ファイルはPR #1でmainに反映しました。PRのGitHub Actionsは成功しましたが、公開サイトでの動作は未確認です。
 
 ### 今回の実行結果（2026年10月31日）
 
@@ -29,7 +29,9 @@
 - `python build_curation.py`：40件の候補からHTMLと出典一覧を再生成。
 - Chromiumの画面操作テスト：40件表示、25件の絞り込み、検索、クイズ、候補選択、JSON書き出し、320px幅の確認が成功。
 - `file://` で実際のHTMLを開く試験：`ERR_BLOCKED_BY_ADMINISTRATOR`。この環境では実ファイルを使う再読み込み後の永続化を検証できませんでした。
-- GitHub Actionsと公開URLの動作：未実施。
+- GitHub Actions：PR #1の初回実行はUbuntu 26.04でPlaywright 1.56のChromium導入に失敗。`runs-on: ubuntu-24.04` へ変更して成功（run 41209453232）。
+- main：PR #1をsquash merge（commit `a1b5f2e46fc903e3e1243f93a0fe71311806df7d`）。
+- GitHub Pagesの公開URL：未確認。
 
 ## 校閲の範囲
 
