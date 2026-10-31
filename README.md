@@ -33,11 +33,11 @@ python build_curation.py
 
 ## 開発と公開
 
-- [DEPLOY.md](DEPLOY.md)：GitHubへの登録、GitHub Pagesの設定、公開確認
+- [DEPLOY.md](DEPLOY.md)：GitHubの更新、GitHub Pagesの設定、公開確認
 - [ROADMAP.md](ROADMAP.md)：展示の追加から共同制作・VR展示までの計画
 - [VERIFICATION.md](VERIFICATION.md)：確認済みの動作と未確認事項
 - `tests/`：データ検証と画面操作テスト
 
-[GitHubリポジトリ](https://github.com/KAFKA2306/curious-museum)は作成済みです。2026年10月31日の確認時点でリポジトリは空でした。コード登録、GitHub Actions、GitHub Pagesの公開は別途確認します。
+[GitHubリポジトリ](https://github.com/KAFKA2306/curious-museum)は作成済みです。PR [#1](https://github.com/KAFKA2306/curious-museum/pull/1) をmainへマージし、14ファイルを登録しました。PRのGitHub Actions検証は成功しています。GitHub Pagesの公開先は未確認です。
 
 Web画面の設計は [KAFKA2306/design](https://github.com/KAFKA2306/design) を参照しています。今後、正式な共有UIに移行する際は同リポジトリの同期手順を使用します。
