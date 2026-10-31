@@ -2,21 +2,11 @@
 
 登録先の [KAFKA2306/curious-museum](https://github.com/KAFKA2306/curious-museum) は作成済みです。2026年10月31日の確認時点では空の状態で、GitHub Pagesの公開は未確認です。
 
-## 1. ファイルを登録する
+## 1. GitHubで更新する
 
-ZIPを展開し、`index.html` があるディレクトリで次を実行します。Gitの認証設定が必要です。
+[リポジトリ](https://github.com/KAFKA2306/curious-museum)には試作版v0.4を登録済みです。今後の変更は作業ブランチからPRを作り、データ・画面の検証後にmainへ反映します。
 
-```bash
-git init -b main
-git add .
-git commit -m "feat: start curious museum v0.4"
-git remote add origin https://github.com/KAFKA2306/curious-museum.git
-git push -u origin main
-```
-
-上の方法はGitHubにまだコミットがない場合の手順です。登録済みのリポジトリには、既存履歴を確認してからPRで変更を取り込みます。
-
-公開前に、秘密情報や個人情報が含まれていないか確認します。
+候補を追加・修正する場合は `exhibit_candidates.json` を編集し、`python build_curation.py` で発掘室と候補一覧を再生成してください。公開前に秘密情報と個人情報がないことを確認します。
 
 ## 2. GitHub Pagesを設定する
 
