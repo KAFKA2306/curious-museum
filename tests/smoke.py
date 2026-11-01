@@ -51,7 +51,7 @@ def main():
         assert page.locator(".card").count() == 11
         page.get_by_label("ジャンル").select_option("all")
         card = page.locator(".card").filter(has=page.get_by_role("heading", name="CIAの機械トンボ"))
-        card.get_by_role("button", name="真相・クイズを見る").click()
+        card.get_by_role("button", name="説明・クイズを見る").click()
         card.locator(".answers button").nth(1).click()
         assert card.get_by_text("正解。出典も確かめてみよう。").count() == 1
         card.get_by_role("button", name="収蔵候補に選ぶ").click()
