@@ -8,7 +8,7 @@
 2. 6点すべてを調べると、秘密の第7展示室が開きます。
 3. [発掘室](curation.html)では40件を検索し、クイズに答え、気に入った展示を収蔵候補に選べます。選んだ候補はJSONファイルに書き出せます。
 
-ブラウザでHTMLを開いて遊べます。アプリのインストールは不要です。
+公開サイトをブラウザで開いて遊べます。アプリのインストールは不要です。ローカルで遊ぶ場合は、HTMLファイルだけでなく `assets/design/kafka-tokens.css` を含むフォルダー全体が必要です。
 
 ## 展示を寄贈する
 
@@ -39,4 +39,4 @@ python build_curation.py
 
 [ソースコード](https://github.com/KAFKA2306/curious-museum)はGitHubで管理しています。公開の成功は、[Actions](https://github.com/KAFKA2306/curious-museum/actions/workflows/site.yml)の `validate-live` で確認します。
 
-画面の試作には [KAFKA2306/design](https://github.com/KAFKA2306/design) を参照しています。共有UIを正式に採用するときは、同リポジトリの同期手順を使います。
+配色は [KAFKA2306/design](https://github.com/KAFKA2306/design) のコミット `08d91bb9faa6805852502812bc4575f328d62ec3` にある `paper` テーマを使用します。`assets/design/kafka-tokens.css` はその生成CSSを固定して取り込んだものです。値の変更はデザインシステムのトークン正本で行い、博物館側に独自の配色を増やしません。

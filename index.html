@@ -1,53 +1,44 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-theme="paper">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0B0F17">
 <meta name="description" content="奇妙な博物館。6つの実在する奇妙な展示を調査し、収蔵印を集めるオフライン対応の小さなゲーム。">
 <title>奇妙な博物館 | 第0号館</title>
+<link rel="stylesheet" href="assets/design/kafka-tokens.css">
 <style>
-:root {
-  color-scheme: dark;
-  /* KAFKA2306/design foundation.tokens.json の dark semantic color を参照したスタンドアロン試作。 */
-  --k-color-canvas:#0B0F17;--k-color-surface:#111827;--k-color-foreground:#F1F5F9;
-  --k-color-muted-foreground:#94A3B8;--k-color-border:#1E293B;--k-color-primary:#60A5FA;
-  --k-color-accent:#7DD3FC;--k-color-success:#4ADE80;--k-color-warning:#FBBF24;
-  --k-color-danger:#F87171;--k-dimension-touch-target:44px;
-  --font:Inter,"Noto Sans JP",system-ui,-apple-system,sans-serif;
-}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:1rem}
-body{margin:0;background:var(--k-color-canvas);color:var(--k-color-foreground);font-family:var(--font);line-height:1.65;font-size:15px}
+body{margin:0;background:var(--k-color-canvas);color:var(--k-color-foreground);font-family:var(--k-font-family-sans);line-height:1.65;font-size:15px}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 button:disabled{opacity:.5;cursor:not-allowed}
-a{color:var(--k-color-accent);text-underline-offset:3px}
-:focus-visible{outline:3px solid var(--k-color-accent);outline-offset:3px}
-::selection{background:var(--k-color-primary);color:#0B0F17}
+a{color:var(--k-color-primary);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--k-color-primary);outline-offset:3px}
+::selection{background:var(--k-color-accent);color:var(--k-color-foreground)}
 .container{width:min(1080px,calc(100% - 36px));margin-inline:auto}
 .skip{position:absolute;top:-70px;left:20px;background:var(--k-color-foreground);color:var(--k-color-canvas);padding:10px;z-index:100}
 .skip:focus{top:12px}
 .topbar{border-bottom:1px solid var(--k-color-border);background:var(--k-color-surface)}
 .topbar-inner{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .brand{font-weight:750;text-decoration:none;color:var(--k-color-foreground);display:inline-flex;gap:12px;align-items:center}
-.brand-mark{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--k-color-accent);color:var(--k-color-accent);font-size:19px;border-radius:2px}
+.brand-mark{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--k-color-primary);color:var(--k-color-primary);font-size:19px;border-radius:2px}
 .top-note{font-size:12px;color:var(--k-color-muted-foreground);text-align:right;letter-spacing:.08em}
 .hero{padding:58px 0 30px;position:relative}
-.kicker{font-size:12px;font-weight:750;letter-spacing:.17em;color:var(--k-color-accent);margin:0 0 16px}
+.kicker{font-size:12px;font-weight:750;letter-spacing:.17em;color:var(--k-color-primary);margin:0 0 16px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(220px,.6fr);align-items:center;gap:26px}
 h1{font-size:clamp(42px,6.8vw,82px);line-height:1.07;letter-spacing:-.075em;margin:0 0 20px;font-weight:820}
-h1 em{font-style:normal;color:var(--k-color-accent)}
+h1 em{font-style:normal;color:var(--k-color-primary)}
 .subtitle{max-width:58ch;color:var(--k-color-muted-foreground);font-size:16px;margin:0 0 23px}
 .hero-quote{border:1px solid var(--k-color-border);background:var(--k-color-surface);padding:22px;transform:rotate(1.5deg);font-size:14px}
 .hero-quote .seal{font-size:56px;line-height:1.2;color:var(--k-color-warning);display:block;letter-spacing:-.12em}
 .hero-quote strong{font-size:17px;display:block;margin:12px 0 8px}
 .hero-quote p{margin:0;color:var(--k-color-muted-foreground)}
-.btn{min-height:var(--k-dimension-touch-target);border:1px solid var(--k-color-primary);background:var(--k-color-primary);color:#0B0F17;display:inline-flex;justify-content:center;align-items:center;gap:7px;padding:10px 15px;text-decoration:none;font-weight:740;border-radius:2px;line-height:1.4}
+.btn{min-height:var(--k-dimension-touch-target);border:1px solid var(--k-color-primary);background:var(--k-color-primary);color:var(--k-color-surface);display:inline-flex;justify-content:center;align-items:center;gap:7px;padding:10px 15px;text-decoration:none;font-weight:740;border-radius:2px;line-height:1.4}
 .btn.secondary{border-color:var(--k-color-border);background:var(--k-color-surface);color:var(--k-color-foreground)}
 .btn.ghost{background:transparent;border-color:var(--k-color-border);color:var(--k-color-foreground)}
 .btn.small{min-height:var(--k-dimension-touch-target);font-size:13px;padding:8px 12px}
-.btn:hover:not(:disabled){border-color:var(--k-color-accent)}
+.btn:hover:not(:disabled){border-color:var(--k-color-primary)}
 .actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .panel{border:1px solid var(--k-color-border);background:var(--k-color-surface)}
 .progress-panel{margin:20px 0 36px;padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:10px 24px;align-items:center}
@@ -64,17 +55,17 @@ h2{font-size:clamp(23px,3.5vw,32px);line-height:1.2;letter-spacing:-.04em;margin
 .section-head p{margin:5px 0 0;color:var(--k-color-muted-foreground);font-size:13px}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
 .filter{border:1px solid var(--k-color-border);padding:9px 13px;background:var(--k-color-surface);color:var(--k-color-muted-foreground);min-height:44px;border-radius:2px}
-.filter[aria-pressed="true"]{border-color:var(--k-color-primary);color:var(--k-color-foreground);background:#162845}
+.filter[aria-pressed="true"]{border-color:var(--k-color-primary);color:var(--k-color-foreground);background:var(--k-color-accent)}
 .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .exhibit{display:flex;flex-direction:column;min-width:0;border:1px solid var(--k-color-border);background:var(--k-color-surface)}
 .exhibit-head{position:relative;min-height:162px;display:grid;place-items:center;border-bottom:1px solid var(--k-color-border);background:var(--k-color-canvas);overflow:hidden}
 .exhibit-head::before,.exhibit-head::after{content:'';position:absolute;border:1px solid var(--k-color-border);width:135px;height:135px;transform:rotate(45deg);opacity:.75}
 .exhibit-head::after{width:180px;height:180px;transform:rotate(24deg)}
-.exhibit-emoji{position:relative;z-index:2;font-size:77px;line-height:1;filter:saturate(.85)}
+.exhibit-emoji{position:relative;z-index:2;font-size:77px;line-height:1;filter:none}
 .exhibit-index{position:absolute;top:12px;left:15px;color:var(--k-color-muted-foreground);font-family:monospace;font-size:12px;letter-spacing:.07em}
 .exhibit-sticker{position:absolute;right:12px;top:12px;border:1px solid var(--k-color-warning);color:var(--k-color-warning);padding:2px 5px;font-size:11px;background:var(--k-color-canvas)}
 .exhibit-body{padding:18px;display:flex;flex-direction:column;flex:1;gap:9px}
-.tag{font-size:11px;font-weight:720;color:var(--k-color-accent);letter-spacing:.08em}
+.tag{font-size:11px;font-weight:720;color:var(--k-color-primary);letter-spacing:.08em}
 h3{font-size:19px;line-height:1.35;margin:0;letter-spacing:-.025em}
 .exhibit-body p{font-size:13px;color:var(--k-color-muted-foreground);margin:0;flex:1}
 .exhibit-body .btn{width:100%;margin-top:8px}
@@ -103,7 +94,7 @@ textarea.field{min-height:92px;resize:vertical}
 .footer{border-top:1px solid var(--k-color-border);padding:28px 0 45px;color:var(--k-color-muted-foreground);font-size:12px}
 .footer-inner{display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap}
 dialog{padding:0;border:1px solid var(--k-color-border);background:var(--k-color-surface);color:var(--k-color-foreground);width:min(620px,calc(100vw - 28px));max-height:min(92dvh,900px);overflow:auto;border-radius:3px}
-dialog::backdrop{background:rgba(0,0,0,.76)}
+dialog::backdrop{background:color-mix(in srgb,var(--k-color-foreground) 76%,transparent)}
 .dialog-content{padding:25px}
 .dialog-top{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:14px}
 .dialog-top .btn{flex:0 0 auto}
