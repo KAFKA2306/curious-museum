@@ -1,4 +1,4 @@
-# 奇妙な博物館｜展示候補55件（2026-11-03）
+# 奇妙な博物館｜展示候補70件（2026-11-03）
 
 元の正式展示6件とは別。クイズ・一次資料・注意点の正本は `exhibit_candidates.json`。
 
@@ -59,3 +59,18 @@
 | 059 | 恒星に食べられる惑星 | 宇宙の常識破り | [確認](https://science.nasa.gov/missions/hubble/hubble-finds-star-eating-a-planet/) | 一次資料の主要記述を照合済 |
 | 060 | 多くの恒星より熱い惑星 | 宇宙の常識破り | [確認](https://science.nasa.gov/universe/exoplanets/astronomers-find-planet-hotter-than-most-stars/) | 一次資料の主要記述を照合済 |
 | 061 | 溶岩の星に大気があるかも | 宇宙の常識破り | [確認](https://science.nasa.gov/missions/webb/nasas-webb-hints-at-possible-atmosphere-surrounding-rocky-exoplanet/) | 一次資料の主要記述を照合済 |
+| 062 | ヤシの実そのものが郵便物 | 人類の思いつき | [確認](https://postalmuseum.si.edu/collections/object-spotlight/coconut) | 一次資料の主要記述を照合済 |
+| 063 | 最初期のマウスは木製 | 人類の思いつき | [確認](https://computerhistory.org/sri-mouse-mn052024/) | 一次資料の主要記述を照合済 |
+| 064 | 宇宙でもクモは巣を張れる | 人類の思いつき | [確認](https://www.nasa.gov/image-article/judiths-web-student-experiment-aboard-skylab-3/) | 一次資料の主要記述を照合済 |
+| 065 | 月を旅した種が地球で木になった | 人類の思いつき | [確認](https://science.nasa.gov/blogs/earth-matters/2021/02/02/what-in-the-world-are-moon-trees/) | 一次資料の主要記述を照合済 |
+| 066 | 硫化鉄のうろこをまとう巻貝 | 生き物の反則技 | [確認](https://www.jamstec.go.jp/j/pr/topics/column-20200408/) | 一次資料の主要記述を照合済 |
+| 067 | ナマコの肛門を住まいにする魚 | 生き物の反則技 | [確認](https://ocean.si.edu/ocean-life/fish/pearlfish-sea-cucumber) | 一次資料の主要記述を照合済 |
+| 068 | 毛むくじゃらの深海ガニ | 生き物の反則技 | [確認](https://www.mbari.org/news/discovery-of-the-yeti-crab/) | 一次資料の主要記述を照合済 |
+| 069 | アリを葉に固定させる菌 | 生き物の反則技 | [確認](https://www.nhm.ac.uk/discover/which-parasite-has-the-weirdest-way-of-life.html) | 一次資料の主要記述を照合済 |
+| 070 | 宇宙の真空にも耐えたクマムシ | 生き物の反則技 | [確認](https://www.nasa.gov/humans-in-space/microscopic-superheroes-to-help-protect-astronaut-health-in-space/) | 一次資料の主要記述を照合済 |
+| 071 | 海が夜じゅう乳白色に光る | 地球の不思議 | [確認](https://science.nasa.gov/earth/earth-observatory/hunting-milky-seas-by-satellite-149017/) | 一次資料の主要記述を照合済 |
+| 072 | 海を漂う石の大群 | 地球の不思議 | [確認](https://science.nasa.gov/earth/earth-observatory/a-raft-of-rock-145490/) | 一次資料の主要記述を照合済 |
+| 073 | 溶岩のそばに青い炎 | 地球の不思議 | [確認](https://www.usgs.gov/observatories/hvo/news/volcano-watch-what-fans-flames-observed-volcanic-vents) | 一次資料の主要記述を照合済 |
+| 074 | 1日が1年より長い惑星 | 宇宙の常識破り | [確認](https://science.nasa.gov/venus/venus-facts/) | 一次資料の主要記述を照合済 |
+| 075 | 太陽が2つある惑星 | 宇宙の常識破り | [確認](https://science.nasa.gov/exoplanet-catalog/kepler-16b/) | 一次資料の主要記述を照合済 |
+| 076 | 冥王星の氷河の下から液体？ | 宇宙の常識破り | [確認](https://science.nasa.gov/blogs/science-news/2026/08/05/nasas-new-horizons-finds-evidence-of-recent-liquid-on-plutos-surface/) | 一次資料の主要記述を照合済 |
