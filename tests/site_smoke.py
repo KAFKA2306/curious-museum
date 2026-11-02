@@ -46,6 +46,37 @@ def assert_published_sha(base_url, expected):
     raise AssertionError(f'Pages deployment is unavailable or stale at {url}: {last_error}')
 
 
+def check_paper_theme(page):
+    """Check the deployed stylesheet, not just the HTML theme attribute."""
+    result = page.evaluate("""() => {
+      const root = document.documentElement;
+      const style = getComputedStyle(root);
+      const colorNames = ['canvas', 'surface', 'foreground', 'muted-foreground', 'primary', 'accent', 'border'];
+      const values = colorNames.map((name) => style.getPropertyValue('--k-color-' + name).trim());
+      const valid = values.every((value) => /^#[0-9a-f]{6}$/i.test(value));
+      const noNavy = values.every((hex) => {
+        if (!/^#[0-9a-f]{6}$/i.test(hex)) return false;
+        const red = parseInt(hex.slice(1, 3), 16);
+        const green = parseInt(hex.slice(3, 5), 16);
+        const blue = parseInt(hex.slice(5, 7), 16);
+        return blue <= Math.max(red, green);
+      });
+      const body = getComputedStyle(document.body);
+      return {
+        theme: root.dataset.theme,
+        values, valid, noNavy,
+        bodyColor: body.color,
+        bodyBackground: body.backgroundColor,
+        canvas: style.getPropertyValue('--k-color-canvas').trim(),
+        foreground: style.getPropertyValue('--k-color-foreground').trim()
+      };
+    }""")
+    assert result['theme'] == 'paper', f'Missing explicit paper theme: {result}'
+    assert result['valid'] and result['noNavy'], f'Missing CSS or navy color: {result}'
+    assert result['canvas'].upper() == '#F7F5EF', f'Unexpected paper canvas: {result}'
+    assert result['foreground'].upper() == '#252321', f'Unexpected paper foreground: {result}'
+
+
 def check_browser(base_url):
     errors = []
     with sync_playwright() as pw:
@@ -57,9 +88,11 @@ def check_browser(base_url):
         home_url = urljoin(base_url, 'index.html')
         response = page.goto(home_url, wait_until='load', timeout=30000)
         assert response and response.status == 200, f'Home HTTP status: {response.status if response else None}'
+        check_paper_theme(page)
         assert page.get_by_role('link', name='珍品を発掘する ↗').count() == 1, 'Home-to-curation link missing'
         page.get_by_role('link', name='珍品を発掘する ↗').click()
         page.wait_for_url('**/curation.html', timeout=15000)
+        check_paper_theme(page)
         assert page.locator('.card').count() == 40, '40 candidate exhibits not rendered'
 
         page.get_by_role('button', name='新着25件だけ').click()
