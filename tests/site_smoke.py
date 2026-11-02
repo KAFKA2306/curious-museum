@@ -93,7 +93,7 @@ def check_browser(base_url):
         page.get_by_role('link', name='珍品を発掘する ↗').click()
         page.wait_for_url('**/curation.html', timeout=15000)
         check_paper_theme(page)
-        assert page.locator('.card').count() == 55, '55 candidate exhibits not rendered'
+        assert page.locator('.card').count() == 70, '70 candidate exhibits not rendered'
 
         page.get_by_role('button', name='新着15件だけ').click()
         assert page.locator('.card').count() == 15, 'New-only filter failed'
@@ -123,7 +123,7 @@ def check_browser(base_url):
 
         page.get_by_role('button', name='選んだ候補だけ').click()
         page.set_viewport_size({'width': 320, 'height': 720})
-        assert page.locator('.card').count() == 55
+        assert page.locator('.card').count() == 70
         assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth + 1'), 'Curation overflows at 320px'
         response = page.goto(home_url, wait_until='load')
         assert response and response.status == 200
@@ -131,7 +131,7 @@ def check_browser(base_url):
         assert not errors, f'Browser JavaScript errors: {errors}'
         context.close()
         browser.close()
-    print(f'PASS real HTTP browser smoke: {base_url} (55 exhibits, filters, quiz, reload, export, 320px)')
+    print(f'PASS real HTTP browser smoke: {base_url} (70 exhibits, filters, quiz, reload, export, 320px)')
 
 
 def main():
