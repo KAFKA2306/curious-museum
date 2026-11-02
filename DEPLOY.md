@@ -16,8 +16,8 @@
 
 | ジョブ | 動く条件 | 確認する内容 |
 |---|---|---|
-| `verify` | PR、mainへのpush、手動実行 | 展示データ、再生成したHTMLとの差分、クイズ・検索、実際のHTTP通信での画面遷移、保存・再読み込み、JSON出力、320px幅 |
-| `publish` | mainで `verify` 成功後 | `index.html`、`curation.html`、`.nojekyll` とコミット番号入り `version.txt` をPagesへ公開 |
+| `verify` | PR、mainへのpush、手動実行 | 展示データ、再生成したHTMLとの差分、共有デザインCSSの固定版との一致、クイズ・検索、実際のHTTP通信での画面遷移、保存・再読み込み、JSON出力、320px幅 |
+| `publish` | mainで `verify` 成功後 | `index.html`、`curation.html`、`assets/`、`.nojekyll` とコミット番号入り `version.txt` をPagesへ公開 |
 | `validate-live` | mainで `publish` 成功後 | 公開URLのコミット番号が一致することと、公開サイトで検索・クイズ・保存・再読み込み・JSON出力が動くこと |
 
 PRでは公開しません。公開サイトの動作を確認できたと判断するのは、同じコミットの `validate-live` が成功した場合だけです。
@@ -43,3 +43,7 @@ python tests/site_smoke.py
 - `validate-live`: 公開URL、`version.txt` のコミット番号、ブラウザのエラーを確認します。失敗した実行を成功扱いにしません。
 
 このテストはスマートフォン実機の使いやすさや、候補40件の出典の正確さまでは検証しません。
+
+## 画面の配色
+
+第0号館と発掘室は、[共有デザインシステム](https://github.com/KAFKA2306/design/tree/08d91bb9faa6805852502812bc4575f328d62ec3)の `paper` テーマを使います。紺色は使用しません。生成CSSの取り込み先は `assets/design/kafka-tokens.css` です。更新するときは共有トークンを変更し、確定したコミットの生成CSSを取り込みます。CIは固定した共有CSSとの一致と、表示した2画面の実際の色を検査します。
