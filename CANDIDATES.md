@@ -1,4 +1,4 @@
-# 奇妙な博物館｜展示候補40件（2026-10-31）
+# 奇妙な博物館｜展示候補55件（2026-11-03）
 
 元の正式展示6件とは別。クイズ・一次資料・注意点の正本は `exhibit_candidates.json`。
 
@@ -44,3 +44,18 @@
 | 044 | ガラスの雨が横向きに降る？ | 宇宙の常識破り | [確認](https://science.nasa.gov/exoplanets/immersive/strange-new-worlds/) | 出典掲載・本文精査中 |
 | 045 | 表と裏で明るさが違う月 | 宇宙の常識破り | [確認](https://science.nasa.gov/saturn/moons/iapetus/) | 出典掲載・本文精査中 |
 | 046 | 誤読から生まれた天体名 | 宇宙の常識破り | [確認](https://science.nasa.gov/venus/venus-facts/) | NASA資料と照合済 |
+| 047 | 宇宙船に密輸されたサンドイッチ | 人類の思いつき | [確認](https://www.nasa.gov/history/fallout-from-the-unauthorized-gemini-iii-space-sandwich/) | 一次資料の主要記述を照合済 |
+| 048 | 橋を人間の身長で測った | 人類の思いつき | [確認](https://news.mit.edu/2009/smoot-0604) | 一次資料の主要記述を照合済 |
+| 049 | 天気を予想する結晶の瓶 | 人類の思いつき | [確認](https://americanhistory.si.edu/collections/object/nmah_1183818) | 一次資料の主要記述を照合済 |
+| 050 | 大学の屋根にパトカーが出現 | 人類の思いつき | [確認](https://news.mit.edu/1999/mits-great-dome-becomes-droid-students-pull-star-wars-hack) | 一次資料の主要記述を照合済 |
+| 051 | 骨に根を伸ばす口のない虫 | 生き物の反則技 | [確認](https://www.mbari.org/news/a-motley-collection-of-boneworms/) | 一次資料の主要記述を照合済 |
+| 052 | 緑に光る爆弾を放つ虫 | 生き物の反則技 | [確認](https://www.mbari.org/animal/bomber-worm/) | 一次資料の主要記述を照合済 |
+| 053 | 竪琴に似た肉食スポンジ | 生き物の反則技 | [確認](https://www.mbari.org/animal/harp-sponge/) | 一次資料の主要記述を照合済 |
+| 054 | 腕がスパゲッティのようなイカ | 生き物の反則技 | [確認](https://www.mbari.org/animal/bigfin-squid/) | 一次資料の主要記述を照合済 |
+| 055 | 7本腕のタコは、本当は8本 | 生き物の反則技 | [確認](https://www.mbari.org/animal/seven-arm-octopus/) | 一次資料の主要記述を照合済 |
+| 056 | 深海を泳ぐ首なしチキン | 生き物の反則技 | [確認](https://oceanexplorer.noaa.gov/ocean-fact/what-is-a-headless-chicken-monster/) | 一次資料の主要記述を照合済 |
+| 057 | 火山がつくる金色のガラスの髪 | 地球の不思議 | [確認](https://www.usgs.gov/media/images/february-17-2026-kilauea-episode-42-peles-hair-pahala) | 一次資料の主要記述を照合済 |
+| 058 | 空に巨大な丸い穴 | 地球の不思議 | [確認](https://www.nesdis.noaa.gov/fallstreak-clouds) | 一次資料の主要記述を照合済 |
+| 059 | 恒星に食べられる惑星 | 宇宙の常識破り | [確認](https://science.nasa.gov/missions/hubble/hubble-finds-star-eating-a-planet/) | 一次資料の主要記述を照合済 |
+| 060 | 多くの恒星より熱い惑星 | 宇宙の常識破り | [確認](https://science.nasa.gov/universe/exoplanets/astronomers-find-planet-hotter-than-most-stars/) | 一次資料の主要記述を照合済 |
+| 061 | 溶岩の星に大気があるかも | 宇宙の常識破り | [確認](https://science.nasa.gov/missions/webb/nasas-webb-hints-at-possible-atmosphere-surrounding-rocky-exoplanet/) | 一次資料の主要記述を照合済 |

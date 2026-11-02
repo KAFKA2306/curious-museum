@@ -1,0 +1,323 @@
+{
+  "schemaVersion": "1.0",
+  "createdAt": "2026-11-03",
+  "project": "奇妙な博物館",
+  "scope": "第3回発掘調査。既存の正式展示6点と既存候補40点に含まれない新規候補15件。一次資料の主要記述を確認。",
+  "items": [
+    {
+      "id": "gemini-sandwich",
+      "category": "人類の思いつき",
+      "icon": "🥪",
+      "title": "宇宙船に密輸されたサンドイッチ",
+      "teaser": "宇宙服のポケットから突然サンドイッチ。",
+      "fact": "1965年のジェミニ3号飛行で宇宙飛行士ジョン・ヤングは、許可されていないコンビーフサンドイッチを宇宙服のポケットに入れて持ち込んだ。船長に分けたが、ライ麦パンが崩れやすく、パンくずが浮くのを避けて片付けた。",
+      "question": "無許可で持ち込まれた食べ物は？",
+      "options": [
+        "コンビーフサンドイッチ",
+        "アイスクリーム",
+        "みかん"
+      ],
+      "answer": 0,
+      "source_name": "NASA History",
+      "source_url": "https://www.nasa.gov/history/fallout-from-the-unauthorized-gemini-iii-space-sandwich/",
+      "note": "持ち込みは事実。『食べ物が宇宙で禁止』ではなく、当該食品が飛行承認を得ていなかった。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "047"
+    },
+    {
+      "id": "smoot-bridge",
+      "category": "人類の思いつき",
+      "icon": "📏",
+      "title": "橋を人間の身長で測った",
+      "teaser": "長さの単位は、友達1人分。",
+      "fact": "1958年、MITの学生らはオリバー・スムートの身長を単位にしてハーバード橋を測り、364.4スムートと耳1つという目印を残した。橋の標識はその後も維持された。",
+      "question": "橋の長さは何スムートだった？",
+      "options": [
+        "36.4スムート",
+        "364.4スムートと耳1つ",
+        "3,644スムート"
+      ],
+      "answer": 1,
+      "source_name": "MIT News",
+      "source_url": "https://news.mit.edu/2009/smoot-0604",
+      "note": "国際単位系の正式な単位ではなく、学生の企画で用いられた単位。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "048"
+    },
+    {
+      "id": "storm-glass",
+      "category": "人類の思いつき",
+      "icon": "🌡️",
+      "title": "天気を予想する結晶の瓶",
+      "teaser": "結晶が増えたら嵐？ 19世紀の予報装置。",
+      "fact": "19世紀に知られたストームグラスは、瓶の中の溶液が結晶化する様子で天気を予想するとされた。スミソニアンの収蔵解説では、1863年の実験者が温度計より劣る温度測定器のようだと評価したことを紹介している。",
+      "question": "瓶の中で観察するものは？",
+      "options": [
+        "砂の模様",
+        "溶液の結晶",
+        "金魚の動き"
+      ],
+      "answer": 1,
+      "source_name": "Smithsonian National Museum of American History",
+      "source_url": "https://americanhistory.si.edu/collections/object/nmah_1183818",
+      "note": "『天気を正確に予測できる装置』と断定しない。結晶は温度の影響を受ける。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "049"
+    },
+    {
+      "id": "mit-dome-police-car",
+      "category": "人類の思いつき",
+      "icon": "🚓",
+      "title": "大学の屋根にパトカーが出現",
+      "teaser": "1994年、屋根の上に警察車両。どう運んだ？",
+      "fact": "1994年5月、MITの学生らは大学のグレートドーム上に警察車両そっくりの工作物を設置した。実際に走行する車ではなく、シボレーの外装を木製の骨組みに取り付けたものだった。",
+      "question": "屋根の上のパトカーの正体は？",
+      "options": [
+        "自走した本物の車",
+        "車の外装を使った工作物",
+        "ヘリで運んだ模型"
+      ],
+      "answer": 1,
+      "source_name": "MIT News",
+      "source_url": "https://news.mit.edu/1999/mits-great-dome-becomes-droid-students-pull-star-wars-hack",
+      "note": "MITの学生による実際の企画。警察が車を駐車した事件ではない。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "050"
+    },
+    {
+      "id": "bone-eating-worm",
+      "category": "生き物の反則技",
+      "icon": "🦴",
+      "title": "骨に根を伸ばす口のない虫",
+      "teaser": "クジラの骨から生える、奇妙な深海の虫。",
+      "fact": "Osedax（ホネクイハナムシ類）は死んだクジラなどの骨に定着し、骨の内部へ根のような部分を伸ばして栄養を得る。口を持たず、根に共生する細菌が骨の成分の利用に関わると考えられている。",
+      "question": "栄養を得るため伸ばすものは？",
+      "options": [
+        "花の蜜を吸う舌",
+        "骨に入り込む根状組織",
+        "くちばし"
+      ],
+      "answer": 1,
+      "source_name": "MBARI",
+      "source_url": "https://www.mbari.org/news/a-motley-collection-of-boneworms/",
+      "note": "根状組織を持つ動物で、植物ではない。細菌がどの成分をどう分解するかには研究上の不確実性がある。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "051"
+    },
+    {
+      "id": "bomber-worm",
+      "category": "生き物の反則技",
+      "icon": "💥",
+      "title": "緑に光る爆弾を放つ虫",
+      "teaser": "敵が来たら発光する小袋を放出。",
+      "fact": "深海のボンバー・ワーム（Swima属）は、頭の後ろに発光物質の袋を持つ。外敵に刺激されると緑色に光る袋を切り離し、目くらましにして逃げる。失った袋は再生する。",
+      "question": "敵から逃げるために放出するものは？",
+      "options": [
+        "緑色に光る袋",
+        "砂の城",
+        "熱い蒸気"
+      ],
+      "answer": 0,
+      "source_name": "MBARI",
+      "source_url": "https://www.mbari.org/animal/bomber-worm/",
+      "note": "『爆弾』は呼び名で、火薬による爆発ではない。MBARIは発光性の分泌物が広がる様子を説明している。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "052"
+    },
+    {
+      "id": "harp-sponge",
+      "category": "生き物の反則技",
+      "icon": "🎼",
+      "title": "竪琴に似た肉食スポンジ",
+      "teaser": "見た目は楽器。獲物を捕らえる深海の海綿。",
+      "fact": "深海にすむハープスポンジ（Chondrocladia lyra）は枝にある小さなかぎで甲殻類を捕まえて食べる。多くの海綿が水をろ過して餌を得るのとは異なる。",
+      "question": "ハープスポンジの主な獲物は？",
+      "options": [
+        "小さな甲殻類",
+        "海底の石",
+        "木の葉"
+      ],
+      "answer": 0,
+      "source_name": "MBARI",
+      "source_url": "https://www.mbari.org/animal/harp-sponge/",
+      "note": "海綿のすべてが肉食ではない。2012年に発見されたとされるのはこの種の報告。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "053"
+    },
+    {
+      "id": "bigfin-squid",
+      "category": "生き物の反則技",
+      "icon": "🦑",
+      "title": "腕がスパゲッティのようなイカ",
+      "teaser": "肘を直角に曲げ、長い腕を垂らす。",
+      "fact": "ビッグフィン・スクイッド（Magnapinna属）は、長い腕と触腕を肘のように折り曲げ、細長い糸状の部分を深海へ伸ばす。2026年のMBARI解説では成体標本が未採集で、食べ物など不明な点が多い。",
+      "question": "腕の見た目の特徴は？",
+      "options": [
+        "直角に曲がり長く垂れる",
+        "すべて球形",
+        "羽に変わる"
+      ],
+      "answer": 0,
+      "source_name": "MBARI",
+      "source_url": "https://www.mbari.org/animal/bigfin-squid/",
+      "note": "食べ方はまだ解明されていない。2026年時点のMBARIの説明に基づく。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "054"
+    },
+    {
+      "id": "seven-arm-octopus",
+      "category": "生き物の反則技",
+      "icon": "🐙",
+      "title": "7本腕のタコは、本当は8本",
+      "teaser": "名前と実物の腕の数が一致しない。",
+      "fact": "セブンアーム・オクトパス（Haliphron atlanticus）は、雄が交接のための特殊な腕を右目の下の袋に収納するため、外から7本に見えることがある。実際は他のタコと同様に8本の腕を持つ。",
+      "question": "実際の腕は何本？",
+      "options": [
+        "7本",
+        "8本",
+        "9本"
+      ],
+      "answer": 1,
+      "source_name": "MBARI",
+      "source_url": "https://www.mbari.org/animal/seven-arm-octopus/",
+      "note": "『7本しか生えないタコ』ではない。収納の説明は主に雄について。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "055"
+    },
+    {
+      "id": "headless-chicken",
+      "category": "生き物の反則技",
+      "icon": "🍗",
+      "title": "深海を泳ぐ首なしチキン",
+      "teaser": "実物は、空を飛ばないナマコ。",
+      "fact": "首なしチキン・モンスターと呼ばれるEnypniastes属のナマコは、体のひれ状の部分を動かして海底から離れて泳ぐ。NOAAは2017年の探査映像を公開している。",
+      "question": "首なしチキンの正体は？",
+      "options": [
+        "ナマコ",
+        "海鳥",
+        "巨大な植物"
+      ],
+      "answer": 0,
+      "source_name": "NOAA Ocean Exploration",
+      "source_url": "https://oceanexplorer.noaa.gov/ocean-fact/what-is-a-headless-chicken-monster/",
+      "note": "呼び名は見た目から付いたもの。首を失ったニワトリではない。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "056"
+    },
+    {
+      "id": "peles-hair",
+      "category": "地球の不思議",
+      "icon": "🌋",
+      "title": "火山がつくる金色のガラスの髪",
+      "teaser": "溶岩から細いガラス繊維が生まれる。",
+      "fact": "キラウエア火山などでは、溶岩が飛び散ると細長い火山ガラスの繊維『ペレの毛』ができ、風で運ばれる。USGSは2026年2月に遠方へ漂着して絡まった繊維の写真を公開した。",
+      "question": "この『髪』の正体は？",
+      "options": [
+        "火山ガラス",
+        "植物の繊維",
+        "鳥の羽"
+      ],
+      "answer": 0,
+      "source_name": "U.S. Geological Survey",
+      "source_url": "https://www.usgs.gov/media/images/february-17-2026-kilauea-episode-42-peles-hair-pahala",
+      "note": "ガラスの微細な繊維であり、素手で触れたり吸い込んだりしない。自然界の髪の毛ではない。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "057"
+    },
+    {
+      "id": "hole-punch-cloud",
+      "category": "地球の不思議",
+      "icon": "☁️",
+      "title": "空に巨大な丸い穴",
+      "teaser": "飛行機が雲に穴を開けることがある。",
+      "fact": "過冷却の水滴を含む雲の層を航空機が通過すると、周囲の冷却によって水滴の凍結が始まり、氷晶が落下して丸や楕円の穴のような雲ができる場合がある。",
+      "question": "丸い穴の形成につながるものは？",
+      "options": [
+        "航空機の通過で起こる凍結",
+        "地上のドリル",
+        "太陽が雲を切る"
+      ],
+      "answer": 0,
+      "source_name": "NOAA NESDIS",
+      "source_url": "https://www.nesdis.noaa.gov/fallstreak-clouds",
+      "note": "すべての雲の穴が航空機由来とは限らない。条件が合った場合に起こる。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "058"
+    },
+    {
+      "id": "wasp12-star",
+      "category": "宇宙の常識破り",
+      "icon": "⭐",
+      "title": "恒星に食べられる惑星",
+      "teaser": "近すぎる星が惑星の大気を奪う。",
+      "fact": "系外惑星WASP-12bは主星に非常に近く、約1.1日で公転する。NASAのハッブル観測では惑星から流出した物質が恒星へ移ると説明され、潮汐力で形も引き伸ばされると考えられている。",
+      "question": "1周するのにどれくらい？",
+      "options": [
+        "約1.1日",
+        "約1.1年",
+        "約110年"
+      ],
+      "answer": 0,
+      "source_name": "NASA Hubble",
+      "source_url": "https://science.nasa.gov/missions/hubble/hubble-finds-star-eating-a-planet/",
+      "note": "『今すぐ惑星が消える』ではない。星に飲み込まれるまでの将来時間の推定は観測・モデルで変わる。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "059"
+    },
+    {
+      "id": "kelt9-hotter-star",
+      "category": "宇宙の常識破り",
+      "icon": "🔥",
+      "title": "多くの恒星より熱い惑星",
+      "teaser": "昼側は約4600ケルビン。分子も壊れる。",
+      "fact": "系外惑星KELT-9bは、NASAが紹介する観測研究で昼側の温度がおよそ4,600 Kに達すると推定されている。高温で水などの分子が分解されるほど過酷なガス惑星だ。",
+      "question": "昼側の推定温度は約何K？",
+      "options": [
+        "460 K",
+        "4,600 K",
+        "46,000 K"
+      ],
+      "answer": 1,
+      "source_name": "NASA Science",
+      "source_url": "https://science.nasa.gov/universe/exoplanets/astronomers-find-planet-hotter-than-most-stars/",
+      "note": "温度は観測からの推定値。『宇宙で最も高温の惑星』という順位を永続的に保証しない。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "060"
+    },
+    {
+      "id": "55cancri-atmosphere",
+      "category": "宇宙の常識破り",
+      "icon": "🪨",
+      "title": "溶岩の星に大気があるかも",
+      "teaser": "岩が溶ける惑星、予想外の熱の動き。",
+      "fact": "系外惑星55 Cancri eは極めて高温の岩石惑星。ジェームズ・ウェッブ宇宙望遠鏡の観測では、昼側が単純な大気なしモデルより低温で、二酸化炭素などを含む大気が存在する可能性が示された。",
+      "question": "観測が示唆したものは？",
+      "options": [
+        "気体を含む大気の可能性",
+        "地表の大森林",
+        "海水の波"
+      ],
+      "answer": 0,
+      "source_name": "NASA Webb",
+      "source_url": "https://science.nasa.gov/missions/webb/nasas-webb-hints-at-possible-atmosphere-surrounding-rocky-exoplanet/",
+      "note": "大気の存在や成分は断定しない。溶岩の海もモデルに基づくと考えられている。",
+      "status": "一次資料の主要記述を照合済",
+      "batch": "第3回",
+      "num": "061"
+    }
+  ]
+}

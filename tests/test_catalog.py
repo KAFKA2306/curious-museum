@@ -13,9 +13,9 @@ class CatalogTests(unittest.TestCase):
         cls.items = cls.data["items"]
 
     def test_ids_and_numbers_are_unique(self):
-        self.assertEqual(40, len(self.items))
+        self.assertEqual(55, len(self.items))
         self.assertEqual(len(self.items), len({r["id"] for r in self.items}))
-        self.assertEqual([f"{i:03d}" for i in range(7, 47)], [r["num"] for r in self.items])
+        self.assertEqual([f"{i:03d}" for i in range(7, 62)], [r["num"] for r in self.items])
 
     def test_quizzes_and_evidence(self):
         for item in self.items:
@@ -31,6 +31,7 @@ class CatalogTests(unittest.TestCase):
 
     def test_batch_and_navigation(self):
         self.assertEqual(25, sum(i["batch"] == "第2回" for i in self.items))
+        self.assertEqual(15, sum(i["batch"] == "第3回" for i in self.items))
         self.assertIn('href="curation.html"', (ROOT / "index.html").read_text(encoding="utf-8"))
         self.assertIn('href="index.html"', (ROOT / "curation.html").read_text(encoding="utf-8"))
 
