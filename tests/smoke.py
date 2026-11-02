@@ -40,7 +40,7 @@ def main():
         errors = []
         page = mount_page(context, "curation.html")
         page.on("pageerror", lambda error: errors.append(str(error)))
-        assert page.locator(".card").count() == 55
+        assert page.locator(".card").count() == 70
         page.get_by_role("button", name="新着15件だけ").click()
         assert page.locator(".card").count() == 15
         page.get_by_role("button", name="新着15件だけ").click()
@@ -48,7 +48,7 @@ def main():
         assert page.locator(".card").count() >= 2
         page.get_by_label("展示候補を検索").fill("")
         page.get_by_label("ジャンル").select_option(label="宇宙の常識破り")
-        assert page.locator(".card").count() == 14
+        assert page.locator(".card").count() == 17
         page.get_by_label("ジャンル").select_option("all")
         card = page.locator(".card").filter(has=page.get_by_role("heading", name="CIAの機械トンボ"))
         card.get_by_role("button", name="説明・クイズを見る").click()
@@ -69,14 +69,14 @@ def main():
             assert [i["id"] for i in json.loads(path.read_text(encoding="utf-8"))["items"]] == ["cia-dragonfly"]
         restored.get_by_role("button", name="選んだ候補だけ").click()
         restored.set_viewport_size({"width": 320, "height": 720})
-        assert restored.locator(".card").count() == 55
+        assert restored.locator(".card").count() == 70
         assert restored.evaluate("document.documentElement.scrollWidth") <= 320
         home = mount_page(context, "index.html")
         home.on("pageerror", lambda error: errors.append(str(error)))
         assert home.get_by_role("link", name="珍品を発掘する ↗").count() == 1
         assert not errors, errors
         browser.close()
-        print("PASS 55 candidates, 15 new, filters, quiz, selection, export, 320px layout")
+        print("PASS 70 candidates, 15 new, filters, quiz, selection, export, 320px layout")
 
 
 if __name__ == "__main__":
