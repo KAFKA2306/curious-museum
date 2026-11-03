@@ -67,10 +67,10 @@
 | 067 | ナマコの肛門を住まいにする魚 | 生き物の反則技 | [確認](https://ocean.si.edu/ocean-life/fish/pearlfish-sea-cucumber) | 一次資料の主要記述を照合済 |
 | 068 | 毛むくじゃらの深海ガニ | 生き物の反則技 | [確認](https://www.mbari.org/news/discovery-of-the-yeti-crab/) | 一次資料の主要記述を照合済 |
 | 069 | アリを葉に固定させる菌 | 生き物の反則技 | [確認](https://www.nhm.ac.uk/discover/which-parasite-has-the-weirdest-way-of-life.html) | 一次資料の主要記述を照合済 |
-| 070 | 宇宙の真空にも耐えたクマムシ | 生き物の反則技 | [確認](https://www.nasa.gov/humans-in-space/microscopic-superheroes-to-help-protect-astronaut-health-in-space/) | 一次資料の主要記述を照合済 |
+| 070 | 水鉄砲で虫を撃つ魚 | 生き物の反則技 | [確認](https://australian.museum/learn/animals/fishes/sevenspot-archerfish-toxotes-chatareus/) | 一次資料の主要記述を照合済 |
 | 071 | 海が夜じゅう乳白色に光る | 地球の不思議 | [確認](https://science.nasa.gov/earth/earth-observatory/hunting-milky-seas-by-satellite-149017/) | 一次資料の主要記述を照合済 |
 | 072 | 海を漂う石の大群 | 地球の不思議 | [確認](https://science.nasa.gov/earth/earth-observatory/a-raft-of-rock-145490/) | 一次資料の主要記述を照合済 |
 | 073 | 溶岩のそばに青い炎 | 地球の不思議 | [確認](https://www.usgs.gov/observatories/hvo/news/volcano-watch-what-fans-flames-observed-volcanic-vents) | 一次資料の主要記述を照合済 |
-| 074 | 1日が1年より長い惑星 | 宇宙の常識破り | [確認](https://science.nasa.gov/venus/venus-facts/) | 一次資料の主要記述を照合済 |
+| 074 | 火ではなく泥と塩水の火山 | 宇宙の常識破り | [確認](https://www.jpl.nasa.gov/news/what-looks-like-ceres-on-earth/) | NASA資料の主要記述を照合済 |
 | 075 | 太陽が2つある惑星 | 宇宙の常識破り | [確認](https://science.nasa.gov/exoplanet-catalog/kepler-16b/) | 一次資料の主要記述を照合済 |
 | 076 | 冥王星の氷河の下から液体？ | 宇宙の常識破り | [確認](https://science.nasa.gov/blogs/science-news/2026/08/05/nasas-new-horizons-finds-evidence-of-recent-liquid-on-plutos-surface/) | 一次資料の主要記述を照合済 |
