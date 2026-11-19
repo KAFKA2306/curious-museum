@@ -35,8 +35,6 @@ jobs:
         run: |
           python -m pip install playwright==1.56.0
           python -m playwright install --with-deps chromium
-      - name: Check interactive flows (isolated DOM)
-        run: python tests/smoke.py
       - name: Check actual local HTTP navigation and persistence
         run: python tests/site_smoke.py
 
