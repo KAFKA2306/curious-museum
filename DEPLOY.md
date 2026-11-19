@@ -30,11 +30,10 @@ python build_curation.py
 git diff --exit-code -- curation.html CANDIDATES.md
 python -m pip install playwright==1.56.0
 python -m playwright install --with-deps chromium
-python tests/smoke.py
 python tests/site_smoke.py
 ```
 
-`tests/site_smoke.py` はローカルHTTPサーバーを立ててブラウザを操作します。HTTP通信が制限された環境では失敗するため、最終結果はGitHub Actionsで確認します。
+`tests/site_smoke.py` はローカルHTTPサーバーを立て、画面遷移、ジャンル絞り込み、再読み込み後の候補保存を検査します。インストール済みの Chromium を使う場合は `MUSEUM_USE_SYSTEM_CHROMIUM=1` を指定します。公開版の結果は GitHub Actions の `validate-live` で確認します。
 
 ## 失敗した場合
 

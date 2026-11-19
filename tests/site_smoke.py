@@ -9,6 +9,7 @@ import http.server
 import json
 import os
 from pathlib import Path
+import shutil
 import tempfile
 import threading
 import time
@@ -80,7 +81,10 @@ def check_paper_theme(page):
 def check_browser(base_url):
     errors = []
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=True)
+        browser_args = {'headless': True}
+        if os.getenv('MUSEUM_USE_SYSTEM_CHROMIUM') == '1':
+            browser_args['executable_path'] = shutil.which('chromium')
+        browser = pw.chromium.launch(**browser_args)
         context = browser.new_context(viewport={'width': 375, 'height': 812}, accept_downloads=True)
         page = context.new_page()
         page.on('pageerror', lambda err: errors.append(str(err)))
@@ -101,6 +105,9 @@ def check_browser(base_url):
         page.get_by_label('展示候補を検索').fill('ミサイル')
         assert page.locator('.card').count() >= 2, 'Search filter failed'
         page.get_by_label('展示候補を検索').fill('')
+        page.get_by_label('ジャンル').select_option(label='宇宙の常識破り')
+        assert page.locator('.card').count() == 17, 'Genre filter failed'
+        page.get_by_label('ジャンル').select_option('all')
 
         card = page.locator('.card').filter(has=page.get_by_role('heading', name='CIAの機械トンボ'))
         card.get_by_role('button', name='説明・クイズを見る').click()
@@ -124,7 +131,7 @@ def check_browser(base_url):
         page.get_by_role('button', name='選んだ候補だけ').click()
         page.set_viewport_size({'width': 320, 'height': 720})
         assert page.locator('.card').count() == 70
-        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth + 1'), 'Curation overflows at 320px'
+        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'), 'Curation overflows at 320px'
         response = page.goto(home_url, wait_until='load')
         assert response and response.status == 200
         assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth + 1'), 'Home overflows at 320px'
